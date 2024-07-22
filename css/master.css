@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+input{
+    outline: none;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >.container{
+        width: 70%;
+        height: 500px;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 15px 10px gray,
+                    0 15px 10px rgb(185, 184, 184);
+                    *{
+        border-radius: 20px;
+                    }
+        >div:nth-of-type(1){
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            >*{
+                margin-bottom: 20px;
+                border-radius: 7px;
+            }
+            >h1{
+                font-size: 35px;
+                font-weight: bold;
+            }
+            >input{
+                width: 250px;
+                height: 40px;
+                padding: 0 20px;
+                border: none;
+                background-color: rgb(226, 224, 224);
+            }
+            >a{
+                text-decoration: none;
+                color: rgb(87, 86, 86);
+            }
+            >button{
+                padding: 10px 30px;
+                background-color: rgb(230, 86, 3);
+                border: none;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        >div:nth-of-type(2){
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            >*{
+                margin-bottom: 20px;
+                border-radius: 7px;
+            }
+            >h1{
+                font-size: 35px;
+                font-weight: bold;
+            }
+            >input{
+                width: 250px;
+                height: 40px;
+                padding: 0 20px;
+                border: none;
+                background-color: rgb(226, 224, 224);
+            }
+            >button{
+                padding: 10px 30px;
+                background-color: rgb(230, 86, 3);
+                border: none;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        >div:nth-of-type(3){
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(230, 86, 3);
+            position: absolute;
+            top: 0;
+            right: 0;
+            >*{
+                margin-bottom: 20px;
+            }
+            >h1{
+                font-size: 40px;
+                font-weight: bold;
+                color: white;
+            }
+            >h3{
+                font-size: 15px;
+                color: white;
+            }
+            >button{
+                padding: 10px 30px;
+                border: 1px solid white;
+                background-color: transparent;
+                border-radius: 20px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        >div:nth-of-type(4){
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            flex-direction: column;
+            background-color: rgb(230, 86, 3);
+            position: absolute;
+            top: 0;
+            right: 0;
+            >*{
+                margin-bottom: 20px;
+            }
+            >h1{
+                font-size: 40px;
+                font-weight: bold;
+                color: white;
+            }
+            >h3{
+                font-size: 15px;
+                color: white;
+            }
+            >button{
+                padding: 10px 30px;
+                border: 1px solid white;
+                background-color: transparent;
+                border-radius: 20px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.active1 {
+	transform: translateX(-100%);
+    transition: all 0.6s ease-in-out;
+}
+.active2 {
+	transform: translateX(100%);
+    transition: all 0.6s ease-in-out;
+}
