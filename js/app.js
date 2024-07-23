@@ -3,8 +3,9 @@ const btnsignin  = document.getElementById('btnin')
 const fsignup    = document.getElementById('fsignup')
 const fsignin    = document.getElementById('fsignin')
 const sign_up    = document.getElementById('signup')
-const password   = document.getElementById('pass')
+const passwordInput   = document.getElementById('pass')
 
+//////////////////////////////////    transition  btn  ///////////////////////////////////
 
 btnsignup.addEventListener('click' , ()=>{
     fsignin.classList.add('active1')
@@ -21,21 +22,54 @@ btnsignin.addEventListener('click' , ()=>{
     fsignin.style.transition = '0.6s'
 })
 
-password.addEventListener('input' , ()=>{
-    let power = 0
-    let temp = password.value
-    if (temp.length > 8 ) power++
-    if (temp.match(/[a-z]/)) power++
-    if (temp.match(/[A-Z]/)) power++
-    if (temp.match(/[0-9]/)) power++
-    if (temp.match(/[~!@#$%^&*(_)]/)) power++
-    switch(power){
-        case 0: password.style.border='5px solid black'; break;
-        case 1: password.style.border='5px solid red'; break;
-        case 2: password.style.border='5px solid orange'; break;
-        case 3: password.style.border='5px solid yellow'; break;
-        case 4: password.style.border='5px solid green'; break;
-        case 5: password.style.border='5px solid blue'; break;
+//////////////////////////////////    passwordInput    ///////////////////////////////////
+
+passwordInput.addEventListener('input', function() {  
+    const password = passwordInput.value;  
+    const gradients = {  
+        veryWeak: 'linear-gradient(to right, red 20%, transparent 20%)',  
+        weak: 'linear-gradient(to right, red 40%, transparent 40%)',  
+        medium: 'linear-gradient(to right, orange 60%, transparent 60%)',  
+        strong: 'linear-gradient(to right, green 80%, transparent 80%)',  
+        veryStrong: 'linear-gradient(to right, blue 100%, transparent 100%)',  
+        default: 'linear-gradient(to right, transparent, transparent)'  
+    };  
+
+    if (password === '') {  
+        passwordInput.style.borderImage = gradients.default;  
+    } else {  
+        const strength = getPasswordStrength(password);  
+        passwordInput.style.borderImage = gradients[strength];  
+    }  
+    passwordInput.style.borderImageSlice = 1;  
+});  
+passwordInput.style.borderImage = gradients[strength] || gradients.default;  
+passwordInput.style.borderImageSlice = 1;  
+
+
+function getPasswordStrength(password) {
+    let power = 0;
+
+    if (password.length >= 6) power++;
+    if (/[a-z]/.test(password)) power++;
+    if (/[A-Z]/.test(password)) power++;
+    if (/[0-9]/.test(password)) power++;
+    if (/[^a-zA-Z0-9]/.test(password)) power++;
+
+    if (power === 0 || power === 1) {
+        return 'veryWeak';
+    } else if (power === 2) {
+        return 'weak';
+    } else if (power === 3) {
+        return 'medium';
+    } else if (power === 4) {
+        return 'strong';
+    } else if (power === 5) {
+        return 'veryStrong';
+    } else {
+        return 'veryWeak'; 
     }
-})
+}
+
+
 
